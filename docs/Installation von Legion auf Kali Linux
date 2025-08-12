@@ -1,0 +1,76 @@
+📄 Dokumentation: Installation von Legion auf Kali Linux
+1. Überblick
+
+Legion ist ein GUI-basiertes Penetration-Testing-Tool (ähnlich wie Sparta), das auf Python3 basiert und zahlreiche Recon- und Exploit-Module integriert.
+Es dient primär der Netzwerk- und Schwachstellensuche und ist unter Kali Linux nicht standardmäßig vorinstalliert.
+2. Voraussetzungen
+Komponente	Anforderung
+Betriebssystem	Kali Linux (Rolling / 2023.x oder neuer empfohlen)
+Benutzerrechte	Root- oder sudo-Berechtigung
+Internetverbindung	Für Paketinstallation & Git-Clone
+Speicherplatz	ca. 300 MB frei
+3. Paketabhängigkeiten
+
+Legion benötigt u. a.:
+
+    Python 3.x
+
+    python3-pip
+
+    git
+
+    Bibliotheken wie python3-pyqt5, python3-sqlalchemy, nmap, hydra, nikto usw.
+
+4. Installationsschritte
+4.1 System aktualisieren
+
+sudo apt update && sudo apt full-upgrade -y
+
+4.2 Abhängigkeiten installieren
+
+sudo apt install -y git python3 python3-pip python3-pyqt5 \
+                    python3-sqlalchemy python3-lxml \
+                    nmap hydra nikto whatweb \
+                    seclists dirb
+
+4.3 Legion herunterladen
+
+cd /opt
+sudo git clone https://github.com/GoVanguard/legion.git
+
+4.4 Python-Module installieren
+
+cd /opt/legion
+sudo pip3 install -r requirements.txt
+
+4.5 Startskript ausführbar machen
+
+sudo chmod +x legion.py
+
+4.6 Symbolischen Link setzen (optional, für globalen Start)
+
+sudo ln -s /opt/legion/legion.py /usr/local/bin/legion
+
+5. Start von Legion
+
+    Variante 1 (direkt aus dem Installationsordner):
+
+cd /opt/legion
+sudo ./legion.py
+
+    Variante 2 (falls Symlink gesetzt wurde):
+
+sudo legion
+
+6. Erster Start & Hinweise
+
+    Legion benötigt Root-/Sudo-Rechte, da Tools wie Nmap tiefgehende Netzwerkoperationen ausführen.
+
+    Beim ersten Start kann es zu Fehlermeldungen wegen fehlender Module kommen → diese per pip3 install <modulname> nachinstallieren.
+
+    Wenn GUI nicht startet → prüfen, ob python3-pyqt5 installiert ist.
+
+7. Deinstallation (optional)
+
+sudo rm -rf /opt/legion
+sudo rm /usr/local/bin/legion
