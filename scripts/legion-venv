@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -e
-export LANG=C
-cd /root/legion || exit 1
-# venv aktivieren
-if [[ -f "venv/bin/activate" ]]; then
-  source venv/bin/activate
-fi
-exec python3 legion.py
