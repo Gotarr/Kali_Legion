@@ -126,3 +126,50 @@ Vor Einsatz in Unternehmensumgebungen schriftliche Genehmigung einholen.
 - Python Virtual Environment Doku: https://docs.python.org/3/library/venv.html
 - Kali Linux Dokumentation: https://www.kali.org/docs/
 
+## 10. Deinstallation
+
+> **Achtung:** Die folgenden Schritte entfernen Legion vollständig aus deinem System.  
+> Die optionalen Schritte zum Entfernen von Abhängigkeiten (Tools wie `nmap`, `hydra`, `nikto` usw.) solltest du **nur** nutzen, wenn du sie nicht für andere Zwecke verwendest.
+
+### 10.1 Vorbereitung (Legion beenden / venv deaktivieren)
+Falls eine virtuelle Umgebung aktiv ist oder Legion läuft:
+```bash
+deactivate 2>/dev/null || true
+```
+
+### 10.2 Optional: Startskript entfernen
+Wenn du das optionale Startskript erstellt hast:
+```bash
+sudo rm -f /usr/local/bin/legion-venv
+```
+
+### 10.3 Legion-Verzeichnis löschen
+```bash
+sudo rm -rf /opt/legion
+```
+
+### 10.4 Optional: Abhängigkeiten entfernen
+Nur ausführen, wenn die Pakete **ausschließlich** für Legion installiert wurden:
+```bash
+sudo apt remove --purge -y \
+  python3-pyqt5 python3-sqlalchemy python3-lxml \
+  nmap hydra nikto whatweb seclists dirb
+```
+
+Anschließend Paketreste und Cache säubern:
+```bash
+sudo apt autoremove --purge -y
+sudo apt clean
+```
+
+### 10.5 (Optional) Python-/Pip-Cache aufräumen
+```bash
+rm -rf ~/.cache/pip
+```
+
+### 10.6 Prüfung
+Die folgenden Befehle sollten **keine** Treffer mehr liefern:
+```bash
+which legion-venv || echo "OK: kein Startskript gefunden"
+ls -ld /opt/legion || echo "OK: /opt/legion wurde entfernt"
+```
