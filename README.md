@@ -88,7 +88,7 @@ source venv/bin/activate
 ### 5.2 Legion starten
 
 ```bash
-sudo ./legion.py
+python3 legion.py
 ```
 
 ⚠ Wichtig: Auch im venv muss `sudo` verwendet werden, da Legion Root-Rechte für Scans benötigt.
