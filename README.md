@@ -18,25 +18,6 @@ Dieses Repository enthaelt die Installations- & Betriebsdokumentation fuer **Leg
    └─ patch_legion_nmapimporter_try_except_v2.sh
 ```
 
-## Schnellstart (als Git-Repo initialisieren)
-Variante A – mit Script:
-```bash
-cd legion-kali-git
-bash init_repo.sh
-# optional gleich auf ein Remote pushen:
-bash init_repo.sh https://github.com/<ORG>/<REPO>.git
-```
-
-Variante B – manuell:
-```bash
-git init
-git add .
-git commit -m "Initial commit: Legion Kali Docs & Patches"
-git branch -M main
-git remote add origin <REMOTE_URL>
-git push -u origin main
-```
-
 ## Inhalte
 - **docs/Legion_Kali_Dokumentation.pdf** – Leitfaden (Deckblatt + Inhaltsverzeichnis), inkl.:
   - Installation (Root + venv)
