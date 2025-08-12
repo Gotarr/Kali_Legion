@@ -1,8 +1,8 @@
-📄 Dokumentation: Installation von Legion auf Kali Linux
+📄 Dokumentation: Installation von Legion auf Kali Linux (mit virtueller Umgebung)
 1. Überblick
 
-Legion ist ein GUI-basiertes Penetration-Testing-Tool (ähnlich wie Sparta), das auf Python3 basiert und zahlreiche Recon- und Exploit-Module integriert.
-Es dient primär der Netzwerk- und Schwachstellensuche und ist unter Kali Linux nicht standardmäßig vorinstalliert.
+Legion ist ein GUI-basiertes Penetration-Testing-Tool, das auf Python3 basiert und zahlreiche Recon- und Exploit-Module integriert.
+Um Systemkonflikte zu vermeiden, wird Legion in dieser Anleitung in einer Python Virtual Environment (venv) betrieben.
 2. Voraussetzungen
 Komponente	Anforderung
 Betriebssystem	Kali Linux (Rolling / 2023.x oder neuer empfohlen)
@@ -17,6 +17,8 @@ Legion benötigt u. a.:
 
     python3-pip
 
+    python3-venv
+
     git
 
     Bibliotheken wie python3-pyqt5, python3-sqlalchemy, nmap, hydra, nikto usw.
@@ -28,7 +30,7 @@ sudo apt update && sudo apt full-upgrade -y
 
 4.2 Abhängigkeiten installieren
 
-sudo apt install -y git python3 python3-pip python3-pyqt5 \
+sudo apt install -y git python3 python3-pip python3-venv python3-pyqt5 \
                     python3-sqlalchemy python3-lxml \
                     nmap hydra nikto whatweb \
                     seclists dirb
@@ -37,40 +39,61 @@ sudo apt install -y git python3 python3-pip python3-pyqt5 \
 
 cd /opt
 sudo git clone https://github.com/GoVanguard/legion.git
+sudo chown -R $USER:$USER legion
 
-4.4 Python-Module installieren
-
-cd /opt/legion
-sudo pip3 install -r requirements.txt
-
-4.5 Startskript ausführbar machen
-
-sudo chmod +x legion.py
-
-4.6 Symbolischen Link setzen (optional, für globalen Start)
-
-sudo ln -s /opt/legion/legion.py /usr/local/bin/legion
-
-5. Start von Legion
-
-    Variante 1 (direkt aus dem Installationsordner):
+4.4 Virtuelle Umgebung erstellen
 
 cd /opt/legion
+python3 -m venv venv
+
+4.5 Virtuelle Umgebung aktivieren
+
+source venv/bin/activate
+
+💡 Hinweis: Nach Aktivierung zeigt die Shell (venv) vor der Eingabezeile an.
+4.6 Python-Module in venv installieren
+
+pip install --upgrade pip
+pip install -r requirements.txt
+
+4.7 Startskript ausführbar machen
+
+chmod +x legion.py
+
+5. Start von Legion (in venv)
+5.1 venv aktivieren
+
+cd /opt/legion
+source venv/bin/activate
+
+5.2 Legion starten
+
 sudo ./legion.py
 
-    Variante 2 (falls Symlink gesetzt wurde):
+⚠ Wichtig: Auch im venv muss sudo verwendet werden, da Legion Root-Rechte für Scans benötigt.
+6. Beenden der virtuellen Umgebung
 
-sudo legion
+deactivate
 
-6. Erster Start & Hinweise
+7. Optional: Start-Skript für venv
 
-    Legion benötigt Root-/Sudo-Rechte, da Tools wie Nmap tiefgehende Netzwerkoperationen ausführen.
+Damit nicht jedes Mal der komplette Befehl getippt werden muss:
 
-    Beim ersten Start kann es zu Fehlermeldungen wegen fehlender Module kommen → diese per pip3 install <modulname> nachinstallieren.
+echo -e '#!/bin/bash\ncd /opt/legion\nsource venv/bin/activate\nsudo ./legion.py' | sudo tee /usr/local/bin/legion-venv
+sudo chmod +x /usr/local/bin/legion-venv
 
-    Wenn GUI nicht startet → prüfen, ob python3-pyqt5 installiert ist.
+Start dann mit:
 
-7. Deinstallation (optional)
+legion-venv
 
-sudo rm -rf /opt/legion
-sudo rm /usr/local/bin/legion
+8. Sicherheitshinweis
+
+⚠ Legion nur in autorisierten Netzwerken einsetzen – unbefugtes Scannen kann strafbar sein!
+Vor Einsatz in Unternehmensumgebungen schriftliche Genehmigung einholen.
+9. Referenzen
+
+    Offizielles GitHub-Repo: https://github.com/GoVanguard/legion
+
+    Python Virtual Environment Doku: https://docs.python.org/3/library/venv.html
+
+    Kali Linux Dokumentation: https://www.kali.org/docs/
