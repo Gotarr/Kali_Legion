@@ -46,7 +46,6 @@ sudo apt install -y git python3 python3-pip python3-venv python3-pyqt5 \
 ```bash
 cd /opt
 sudo git clone https://github.com/GoVanguard/legion.git
-sudo chown -R $USER:$USER legion
 ```
 
 ### 4.4 Virtuelle Umgebung erstellen
