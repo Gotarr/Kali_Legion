@@ -136,8 +136,8 @@ Vor Einsatz in Unternehmensumgebungen schriftliche Genehmigung einholen.
 
 ## 9. Referenzen
 
-- Offizielles GitHub-Repo: https://github.com/hackman238/legion
-- GitHub-Repo: https://github.com/GoVanguard/legion (archiv)
+- Offizielles GitHub-Repo: https://github.com/GoVanguard/legion
+- GitHub-Repo: https://github.com/hackman238/legion (neuer, andere Bestimmungen und Install)
 - Python Virtual Environment Doku: https://docs.python.org/3/library/venv.html
 - Kali Linux Dokumentation: https://www.kali.org/docs/
 
