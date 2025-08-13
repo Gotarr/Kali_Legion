@@ -46,6 +46,9 @@ sudo apt install -y git python3 python3-pip python3-venv python3-pyqt5 \
 ```bash
 cd /opt
 sudo git clone https://github.com/GoVanguard/legion.git
+################################## nmap "patch"
+cd /opt
+sudo git clone https://github.com/Gotarr/Kali_Legion
 ```
 
 ### 4.4 Virtuelle Umgebung erstellen
@@ -80,6 +83,14 @@ pip install "requests>=2.32.0,<3" "urllib3>=2.2,<3" "idna>=3" "certifi>=2024.2.2
 chmod +x legion.py
 ```
 
+### 4.8 patchscripte für den nmap import error
+
+```bash
+cd /opt
+bash Kali_Legion/scripts/patch_legion_nmapimporter_scr_none.sh
+bash Kali_Legion/scripts/patch_legion_nmapimporter_try_except.sh
+bash Kali_Legion/scripts/patch_legion_vulners.sh
+```
 ## 5. Start von Legion (in venv)
 
 ### 5.1 venv aktivieren
