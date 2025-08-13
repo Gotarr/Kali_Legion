@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-FILE="/opt/legion/legion/parsers/Script.py"
+FILE="/opt/legion/parsers/Script.py"
 
 echo "[*] Prüfe Datei: $FILE"
 if [[ ! -f "$FILE" ]]; then
