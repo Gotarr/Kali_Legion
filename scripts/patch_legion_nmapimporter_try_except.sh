@@ -14,7 +14,7 @@ cp -a "$FILE" "$BAK"
 echo "[*] Patche defensive Zuweisung für db_script.output mittels Python-Regex ..."
 python3 - <<'PY'
 import re, pathlib, sys
-p = pathlib.Path("/root/legion/legion/app/importers/NmapImporter.py")
+p = pathlib.Path("/opt/legion/app/importers/NmapImporter.py")
 s = p.read_text(encoding="utf-8")
 
 # Erfasst:
