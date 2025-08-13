@@ -141,9 +141,11 @@ Vor Einsatz in Unternehmensumgebungen schriftliche Genehmigung einholen.
 - Python Virtual Environment Doku: https://docs.python.org/3/library/venv.html
 - Kali Linux Dokumentation: https://www.kali.org/docs/
 
-⚖️ License
-Legion is licensed under the GNU General Public License v3.0. Take a look at the LICENSE for more information.
-[https://github.com/hackman238/legion](https://github.com/Hackman238/legion/blob/master/LICENSE)
+## ⚖️ License
+Legion is licensed under the GNU General Public License v3.0. Take a look at the [LICENSE](https://github.com/Hackman238/legion/blob/master/LICENSE) for more information.
+
+## ⭐️ Attribution
+Fork based from [http://guthub.com/GoVanguard/legion](https://github.com/Abacus-Group-RTO/legion) by Shane Scott.
 
 ## 10. Deinstallation
 
