@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-FILE="/opt/legion/legion/app/importers/NmapImporter.py"
+FILE="/opt/legion/app/importers/NmapImporter.py"
 
 echo "[*] Prüfe Datei: $FILE"
 [[ -f "$FILE" ]] || { echo "[!] Datei nicht gefunden: $FILE"; exit 1; }
