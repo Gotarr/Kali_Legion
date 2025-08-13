@@ -108,7 +108,7 @@ deactivate
 Damit nicht jedes Mal der komplette Befehl getippt werden muss:
 
 ```bash
-echo -e '#!/bin/bash\ncd /opt/legion\nsource venv/bin/activate\nsudo ./legion.py' | sudo tee /usr/local/bin/legion-venv
+echo -e '#!/bin/bash\ncd /opt/legion\nsource venv/bin/activate\npython3 legion.py' | sudo tee /usr/local/bin/legion-venv
 sudo chmod +x /usr/local/bin/legion-venv
 ```
 
