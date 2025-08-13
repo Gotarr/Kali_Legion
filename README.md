@@ -106,8 +106,6 @@ source venv/bin/activate
 python3 legion.py
 ```
 
-⚠ Wichtig: Auch im venv muss `sudo` verwendet werden, da Legion Root-Rechte für Scans benötigt.
-
 ## 6. Beenden der virtuellen Umgebung
 
 ```bash
@@ -119,7 +117,7 @@ deactivate
 Damit nicht jedes Mal der komplette Befehl getippt werden muss:
 
 ```bash
-echo -e '#!/bin/bash\ncd /opt/legion\nsource venv/bin/activate\nsudo python3 legion.py' | sudo tee /usr/local/bin/legion-venv
+echo -e '#!/bin/bash\ncd /opt/legion\nsource venv/bin/activate\n python3 legion.py' | sudo tee /usr/local/bin/legion-venv
 sudo chmod +x /usr/local/bin/legion-venv
 ```
 
