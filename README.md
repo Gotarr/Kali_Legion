@@ -24,6 +24,16 @@ Legion benötigt u. a.:
 - git
 - Bibliotheken wie python3-pyqt5, python3-sqlalchemy, nmap, hydra, nikto usw.
 
+## Tool versionen
+- map -v                       
+  Starting Nmap 7.95 ( https://nmap.org ) at 2025-08-14 15:45 CEST
+  Read data files from: /usr/share/nmap
+- hydra -v
+  Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+  Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-08-14 15:46:56
+- nikto -Version
+  Nikto 2.5.0 (LW 2.5) 
+
 ## 4. Installationsschritte
 
 ### 4.1 System aktualisieren
