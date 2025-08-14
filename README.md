@@ -80,10 +80,10 @@ source venv/bin/activate
 
 ### 4.6 Python-Module in venv installieren
 
+# Alles auf ein kompatibles Set bringen
 ```bash
 pip install --upgrade pip
 pip install -r requirements.txt
-# Alles auf ein kompatibles Set bringen
 pip install --upgrade pip setuptools wheel
 pip install "requests>=2.32.0,<3" "urllib3>=2.2,<3" "idna>=3" "certifi>=2024.2.2" "charset-normalizer>=3"
 
@@ -115,6 +115,7 @@ source venv/bin/activate
 ### 5.2 Legion starten
 
 ```bash
+cd /opt/legion
 python3 legion.py
 ```
 
